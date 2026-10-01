@@ -55,11 +55,11 @@ class _OrderScreenState extends State<OrderScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () => print('Add button pressed!'),
+                onPressed: _increaseQuantity,
                 child: const Text('Add'),
               ),
               ElevatedButton(
-                onPressed: () => print('Remove button pressed!'),
+                onPressed: _decreaseQuantity,
                 child: const Text('Remove'),
               ),
             ],
@@ -69,6 +69,19 @@ class _OrderScreenState extends State<OrderScreen> {
     ),
   );
   }
+
+  void _increaseQuantity() {
+  if (_quantity < widget.maxQuantity) {
+    setState(() => _quantity++);
+  }
+}
+
+void _decreaseQuantity() {
+  if (_quantity > 0) {
+    setState(() => _quantity--);
+  }
+}
+
 } 
 
 // class MyApp extends StatelessWidget {
