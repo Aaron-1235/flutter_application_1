@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/menu_screen.dart';
 
 void main() {
   runApp(const App());
@@ -9,10 +10,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Sandwich Shop App',
-      home: OrderScreen(maxQuantity: 5,),
-    );
+    return const MaterialApp(title: 'Sandwich Shop App', home: MenuScreen());
   }
 }
 
@@ -45,44 +43,43 @@ class _OrderScreenState extends State<OrderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: AppBar(title: const Text('Sandwich Counter'),),
-    body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          OrderItemDisplay(_quantity, 'Footlong',),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: _increaseQuantity,
-                child: const Text('Add'),
-              ),
-              ElevatedButton(
-                onPressed: _decreaseQuantity,
-                child: const Text('Remove'),
-              ),
-            ],
-          ),
-        ],
+      appBar: AppBar(title: const Text('Sandwich Counter')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            OrderItemDisplay(_quantity, 'Footlong'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: _increaseQuantity,
+                  child: const Text('Add'),
+                ),
+                ElevatedButton(
+                  onPressed: _decreaseQuantity,
+                  child: const Text('Remove'),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
-    ),
-  );
+    );
   }
 
   void _increaseQuantity() {
-  if (_quantity < widget.maxQuantity) {
-    setState(() => _quantity++);
+    if (_quantity < widget.maxQuantity) {
+      setState(() => _quantity++);
+    }
+  }
+
+  void _decreaseQuantity() {
+    if (_quantity > 0) {
+      setState(() => _quantity--);
+    }
   }
 }
-
-void _decreaseQuantity() {
-  if (_quantity > 0) {
-    setState(() => _quantity--);
-  }
-}
-
-} 
 
 // class MyApp extends StatelessWidget {
 //   const MyApp({super.key});
