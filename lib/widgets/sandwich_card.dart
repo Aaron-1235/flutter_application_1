@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/sandwich.dart';
+import 'package:flutter_application_1/screens/order_screen.dart';
 
 class SandwichCard extends StatelessWidget {
   final Sandwich sandwich;
@@ -58,7 +59,16 @@ class SandwichCard extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {}, 
+                  onPressed: () {
+                    Navigator.push(
+                      context, 
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return OrderScreen(sandwich: sandwich);
+                        }
+                      )
+                    );
+                  }, 
                   child: const Text('Order'),
                 ),
               ],
