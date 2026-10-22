@@ -26,28 +26,28 @@ class SandwichCard extends StatelessWidget {
                   height: 80,
                   fit: BoxFit.cover,
                 ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      sandwich.name,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        sandwich.name,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 8,),
-                    Text(
-                      sandwich.description,
-                      style: const TextStyle(color: Colors.black54),
-                    ),
-                  ],
+                      const SizedBox(height: 8),
+                      Text(
+                        sandwich.description,
+                        style: const TextStyle(color: Colors.black54),
+                      ),
+                    ],
+                  ),
                 ),
-              )
               ],
             ),
-            const SizedBox(height: 16,),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -61,22 +61,21 @@ class SandwichCard extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
-                      context, 
+                      context,
                       MaterialPageRoute(
                         builder: (context) {
                           return OrderScreen(sandwich: sandwich);
-                        }
-                      )
+                        },
+                      ),
                     );
-                  }, 
+                  },
                   child: const Text('Order'),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
     );
   }
 }
-
