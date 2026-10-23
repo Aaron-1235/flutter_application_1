@@ -12,11 +12,22 @@ class SandwichRepository {
         ),
         Sandwich(
           id: 'six-inch', 
-          name: 'Six-Inch sub', 
+          name: 'Six-Inch Sub', 
           description: 'A light 6-inch sandwich made with your favourite toppings.', 
           price: 4.50, 
           imagepath: 'assets/images/six_inch.jpeg',
           ),
     ];
   }
+
+  Sandwich? getSandwichById(String id) {
+    final List<Sandwich> allSandwiches = getSandwiches();
+    for (final Sandwich sandwich in allSandwiches) {
+      if (sandwich.id == id) {
+        return sandwich;
+      }
+    }
+    return null;
+  }
+
 }
