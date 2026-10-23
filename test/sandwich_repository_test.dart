@@ -10,7 +10,7 @@ void main() {
 
       expect(sandwiches.length, 2);
     });
-    
+
     test('getSandwiches contains valid Footlong and Six-Inch sub', () {
       final SandwichRepository repository = SandwichRepository();
       final List<Sandwich> sandwiches = repository.getSandwiches();
@@ -42,6 +42,7 @@ void main() {
       final Sandwich? sandwich = repository.getSandwichById('non-existent');
 
       expect(sandwich, isNull);
-    });;
-});
+    });
+    ;
+  });
 }

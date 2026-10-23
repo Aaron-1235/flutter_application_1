@@ -22,14 +22,14 @@ void main() {
       'formattedPrice returns price prefixed with pound sign and two decimals',
       () {
         const sandwich = Sandwich(
-          id: 'footlong', 
-          name: 'Footlong sub', 
-          description: 'test desciption', 
-          price: 7.5, 
+          id: 'footlong',
+          name: 'Footlong sub',
+          description: 'test desciption',
+          price: 7.5,
           imagepath: 'assets/images/six_inch.jpeg',
         );
         expect(sandwich.formattedPrice, '£7.50');
-      }
+      },
     );
   });
 }
