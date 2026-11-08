@@ -1,4 +1,4 @@
-import 'package:flutter/gestures.dart';
+import 'package:flutter_application_1/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/sandwich.dart';
 import 'package:flutter_application_1/screens/order_screen.dart';
@@ -58,7 +58,8 @@ class SandwichCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                ElevatedButton(
+                PrimaryButton(
+                  label: 'Order',
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -69,7 +70,6 @@ class SandwichCard extends StatelessWidget {
                       ),
                     );
                   },
-                  child: const Text('Order'),
                 ),
               ],
             ),
