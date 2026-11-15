@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/menu_screen.dart';
 import 'package:flutter_application_1/constants.dart';
+import 'package:flutter_application_1/screens/basket_screen.dart';
 
 void main() {
   runApp(const App());
@@ -13,7 +14,15 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       title: appTitle, 
-      home: const MenuScreen(),
+      initialRoute: '/',
+      routes: <String, WidgetBuilder>{
+        '/': (BuildContext context) {
+          return const MenuScreen();
+        },
+        '/basket': (BuildContext context) {
+          return const BasketScreen();
+        },
+      },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
@@ -31,15 +40,3 @@ class App extends StatelessWidget {
   }
 }
 
-//   void _increaseQuantity() {
-//     if (_quantity < widget.maxQuantity) {
-//       setState(() => _quantity++);
-//     }
-//   }
-
-//   void _decreaseQuantity() {
-//     if (_quantity > 0) {
-//       setState(() => _quantity--);
-//     }
-//   }
-// }
