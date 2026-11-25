@@ -33,6 +33,7 @@ class _BasketScreenState extends State<BasketScreen> {
   Widget build(BuildContext context) {
     final CartRepository cart = CartRepository.instance;
     final List<CartItem> items = cart.getItems();
+    
     final Widget content;
     if (items.isEmpty) {
       if (_confirmationMessage.isNotEmpty) {
@@ -48,11 +49,24 @@ class _BasketScreenState extends State<BasketScreen> {
           ],
         );
       } else {
-        content = const Text('Empty basket placeholder');
+        content = _buildEmptyState();
       }
     } else {
-      content = const Text('Basket list placeholder');
+      content = _buildBasketList(cart, items);
     }
+    
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(appTitle, style: shopHeaderStyle),
+        actions: const [BasketButton()],
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
+        child: content,
+      ),
+    );
+  }
+  
 
   Widget _buildLineItem(CartRepository cart, CartItem item, int index) {
     return Padding(
@@ -164,20 +178,6 @@ class _BasketScreenState extends State<BasketScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: children,
-    );
-  }
-  
-
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(appTitle, style: shopHeaderStyle),
-        actions: const [BasketButton()],
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: content,
-      ),
     );
   }
 }
